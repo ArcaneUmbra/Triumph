@@ -29,43 +29,34 @@ var bridge = function() {
 
 /* Draw a moving platform */
 
-/*
 var Platform =  {};
 
 Platform.posX = 20;
 Platform.posY = 50;
+Platform.moveby = 1;
 
 Platform.move = function() {
-	var left = true;
 
-	if(left == true) {
-		for(i = 0; i < 10; i++) {
-			if(i == 10) {
-				left = false;
-			}
-			else if ( i < 10) {
-				Platform.posX += 1;
-			}
-		}
+	if(Platform.posX == 20 ) {
+		Platform.moveby = 1;
 	}
-	else {
-		for(j = 0; j < 10; j++) {
-			if(j == 10) {
-				left = true;
-			}
-			else if ( j < 10) {
-				Platform.posX -= 1;
-			}
-		}
+	else if(Platform.posX == 80) {
+		Platform.moveby = -1;
 	}
+	
+	Platform.posX += Platform.moveby;
+	
+	//console.log("Right " + Platform.right);
+	//console.log("Left " + Platform.left);
 
 };
 
 Platform.draw = function() {
 	ctx.fillStyle = '#ff33cc';
 	ctx.fillRect( Platform.posX, Platform.posY, 20, 20)
+	
+	//console.log("draw called");
 };
-*/
 
 /* Basic Test Game Loop */
 
@@ -74,11 +65,11 @@ var Game = {};
 Game.draw = function() {
 	clear();
 	bridge();
-	//Platform.draw();
+	Platform.draw();
 };
 
 Game.update = function() {
-	//Platform.move();
+	Platform.move();
 };
 
 Game.fps = 50;
