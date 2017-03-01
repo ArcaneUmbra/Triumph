@@ -27,36 +27,10 @@ var bridge = function() {
 	ctx.fillRect( 80, 120, 200, 30);
 };
 
-/* Draw a moving platform */
+/* Call Platform class */
 
-var Platform =  {};
-
-Platform.posX = 20;
-Platform.posY = 50;
-Platform.moveby = 1;
-
-Platform.move = function() {
-
-	if(Platform.posX == 20 ) {
-		Platform.moveby = 1;
-	}
-	else if(Platform.posX == 80) {
-		Platform.moveby = -1;
-	}
-	
-	Platform.posX += Platform.moveby;
-	
-	//console.log("Right " + Platform.right);
-	//console.log("Left " + Platform.left);
-
-};
-
-Platform.draw = function() {
-	ctx.fillStyle = '#ff33cc';
-	ctx.fillRect( Platform.posX, Platform.posY, 20, 20)
-	
-	//console.log("draw called");
-};
+const plat1 = new Platform(20, 40, 20, 80, 20, 80, "#66ff66", 0.5);
+const plat2 = new Platform(5, 100, 300, 200, 300, 200, "#333333", -0.5);
 
 /* Basic Test Game Loop */
 
@@ -65,11 +39,13 @@ var Game = {};
 Game.draw = function() {
 	clear();
 	bridge();
-	Platform.draw();
+	plat1.draw();
+	plat2.draw();
 };
 
 Game.update = function() {
-	Platform.move();
+	plat1.moveHoz(80);
+	plat2.moveVert(80);
 };
 
 Game.fps = 50;
