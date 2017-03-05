@@ -83,8 +83,6 @@ class Platform {
 		ctx.fillRect(this.posX, this.posY, this.width, this.height);
 	}
 	
-	/*
-
 	wallCollision( cW, cH) {
 		if(this.posX + this.width >= cW) {
 			this.posX = cW - this.width;
@@ -99,7 +97,6 @@ class Platform {
 			this.posY = 0;
 		}
 	}
-	*/
 
 	// Resets the platform to original position
 	reset() {
