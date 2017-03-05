@@ -17,8 +17,8 @@ var Level1 = {};
 Level1.objects = function() {
 	platflat.moveHoz(80);
 	platdown.moveVert(80);
-	block.gravity(0.5);
-	//block.wallCollision(400, 200);
+	block.gravity(2);
+	block.wallCollision(400, 200);
 	//wallCollision(block.posX, block.posY, block.width, block.height, 400, 200);
 	//block.checkWallCollide();
 };
