@@ -44,17 +44,20 @@ class Platform {
 	// Move platform Veticaly
 	moveVert(posY2) {
 		
+		// When the platform reaches posYS it will reverse speed
 		if(this.posY == this.posYs) {
 			if(this.speed > 0) {
 				this.speed = this.speed * -1;
 			}
 		}
+		// When the platform reaches posY2 it will reverse speed
 		else if(this.posY == posY2) {
 			if(this.speed < 0) {
 				this.speed = this.speed * -1;
 			}
 		}
 		
+		// Moves the platform
 		this.posY += this.speed;
 	}
 
@@ -63,10 +66,44 @@ class Platform {
 	moveDiag(posX2, posY2) {
 	}
 	*/
+
+	// Gravity
+	gravity(grav) {
+		this.posY += grav;
+	}
+	
+	// Collision
+	checkWallCollide() {
+		wallCollision(this.posX, this.posY, this.width, this.height, 400, 200);
+	}
 	
 	// Draw the platform
 	draw() {
 		ctx.fillStyle = this.fillstyle;
 		ctx.fillRect(this.posX, this.posY, this.width, this.height);
 	}
+	
+	/*
+
+	wallCollision( cW, cH) {
+		if(this.posX + this.width >= cW) {
+			this.posX = cW - this.width;
+		}
+		if(this.posX <= 0) {
+			this.posX = 0;
+		}
+		if(this.posY + this.height >= cH) {
+			this.posY = cH - this.height;
+		}
+		if(this.posY <= 0) {
+			this.posY = 0;
+		}
+	}
+	*/
+
+	// Resets the platform to original position
+	reset() {
+		this.posX = this.posXs;
+		this.posY = this.posYs;
+	};
 };
