@@ -4,17 +4,17 @@
 	Checks to see if objects have collieded.
 */
 
-function wallCollision(x, y, w, h, cW, cH) {
-	if(x + w >= cW) {
-		x = cW - w;
+function wallCollision(cW, cH) {
+	if(this.posX + this.width >= cW) {
+		this.posX = cW - this.width;
 	}
-	if(x <= 0) {
-		x = 0;
+	if(this.posX <= 0) {
+		this.posX = 0;
 	}
-	if(y + h >= cH) {
-		y = cH - h;
+	if(this.posY + this.height >= cH) {
+		this.posY = cH - this.height;
 	}
-	if(y <= 0) {
-		y = 0; 
+	if(this.posY <= 0) {
+		this.posY = 0; 
 	}
 }
