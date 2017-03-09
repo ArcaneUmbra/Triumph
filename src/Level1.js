@@ -13,14 +13,14 @@ const block = new Platform(10, 10, 50, 20, 50, 20, "#2222cc", 0);
 
 var Level1 = {};
 
+Platform.prototype.wallCollide = wallCollision;
+
 // Initialises objects
 Level1.objects = function() {
 	platflat.moveHoz(80);
 	platdown.moveVert(80);
 	block.gravity(2);
-	block.wallCollision(400, 200);
-	//wallCollision(block.posX, block.posY, block.width, block.height, 400, 200);
-	//block.checkWallCollide();
+	block.wallCollide(400, 200);
 };
 
 // Draws the level
